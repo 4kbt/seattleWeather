@@ -4,20 +4,21 @@ freqSearch;
 daysPlot;
 
 subMean = new;
-index = 1;
 monthCounter=1;
-while (index <= length(d))
+for i = 1:length(d(:,1))
   if (counter == 13)
     counter = 1;
   endif
-  while(d(index,2)==monthCounter)
+  i=1;
+  while(d(i,2)==monthCounter)
   %This takes each day and subtracts the monthly mean high 
   %and low temp
-  subMean(index,3:4)=[(subMean(index,3)-r(monthCounter,2)),(subMean(index,4)-r(monthCounter,2))];
-  index=index+1;
+  subMean(i,3:4)=[(subMean(i,3)-r(monthCounter,2)),(subMean(i,4)-r(monthCounter,2))];
+  i=i+1;
   endwhile
   monthCounter = monthCounter+1;
-endwhile
+endfor
 
+figure(1);
 plot(subMean(:,1),subMean(:,3),
      subMean(:,1),subMean(:,4));
