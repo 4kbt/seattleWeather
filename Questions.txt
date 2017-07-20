@@ -1,0 +1,50 @@
+One night, coming home from the mountains in a cool, wet winter, I casually
+mentioned to Susan that "next month will probably be warm, because
+we'll regress to the mean". She disagreed, and so I did an analysis like this 
+one. I'll let you figure out who was more correct.
+
+These are data from SeaTac Airport from 1948-present [1]. The data were originally
+in CSV format (I've appended it, and the unix script I used to parse it, in case
+you're curious). I've tab-delimited the relevant columns and provided an import
+Octave script to get things started.
+
+Questions:
+
+1. How much does the temperature (relative to average) in a given month 
+correlate with the temperature (relative to average) in the following month?
+
+The temperature correlations seem pretty strong, the slope of the line fit through
+the data is steep and the error bars do not cross the axis, so there is a positive
+correlation between months in relation to temperature.
+ 
+3 months out? 
+
+About the same, but the precipitation fit slope went to zero, and the slopes for
+the other fits seemed to do the same, suggesting that the correlation declines
+as the difference increases.
+
+6 months out? 
+
+Exacerbates the 3 month, the slopes of each fit get progressively smaller, however
+the low temperatures seem to keep higher correlation.
+
+A year out?  
+
+I approximated with 11 months so as not to have to rewrite all my code (laziness)
+But the correlation became anti-correlation, however there are fewer data points
+so I think this is random from the small amount of data. This shows that the correlation
+loses steam as the month difference gets larger. 
+
+Quantify the uncertainties.
+
+2. How much does the precipitation (relative to average) in a given month 
+correlate with the precipitation (relative to average) in the following month?
+3 months out? 6 months out? A year out?  Quantify the uncertainties.
+
+All of the fits had large uncertainties that crossed the x axis for the precipitation;
+I would say that the correlation doesn't exist or is random because the data
+is randomly dispersed.
+
+
+[1] NOAA Climate Data Online request 1000478, 2017-06-22 GHCND:USW00024233
+	Precip, TMax, TMin
