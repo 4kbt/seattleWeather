@@ -103,7 +103,26 @@ mean(M0M1(:,1))
 std(M0M1(:,1))/sqrt(rows(M0))
 %hist(M0M1(:,1),sqrt(rows(M0)))
 
+
+%%%%%%%%%%%%%%%%
+%PRECIPITIATION%
+%%%%%%%%%%%%%%%%
+
+
+%Computing this differently, as there's such strong seasonal variation in precipitation
 PrecipAnomaly = [monthlyAverage(:,1:2) ...
-		monthlyAverage(:,3) - climateAverages(monthlyAverage(:,2),2)];
+		(monthlyAverage(:,3) - climateAverages(monthlyAverage(:,2),2))./ ...
+		climateAverages(monthlyAverage(:,2),2) ];
 
 
+
+%remove any global trend, as above
+dPrecipAnomaly = [PrecipAnomaly(:,1:2), detrend(PrecipAnomaly(:,3))];
+
+[ corcoeffP  lagP ] =xcorr(dPrecipAnomaly (:,3),'coeff');
+
+semilogx( lagP , corcoeffP ,'+-;Precipitation; ')                                                                       
+xlabel('month delay')                                                           
+ylabel('correlation coefficient')
+
+%nothing!?! Neat. 
