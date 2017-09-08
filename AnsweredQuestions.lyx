@@ -1,0 +1,191 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Monthly Correlations in Seattle Weather
+\end_layout
+
+\begin_layout Author
+Charlie Hagedorn
+\end_layout
+
+\begin_layout Subsection*
+Prelude
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+One night, coming home from the mountains in a cool, wet winter, I casually
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+mentioned to Susan that "next month will probably be warm, because
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+we'll regress to the mean".
+ She disagreed, and so I did an analysis like this 
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+one.
+ I'll let you figure out who was more correct.
+\end_layout
+
+\begin_layout Subsection
+Problem Statement
+\end_layout
+
+\begin_layout Standard
+These are data from SeaTac Airport from 1948-present 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1"
+
+\end_inset
+
+.
+ The data were originally
+\end_layout
+
+\begin_layout Standard
+in CSV format (I've appended it, and the unix script I used to parse it,
+ in case
+\end_layout
+
+\begin_layout Standard
+you're curious).
+ I've tab-delimited the relevant columns and provided an import
+\end_layout
+
+\begin_layout Standard
+Octave script to get things started.
+\end_layout
+
+\begin_layout Subsubsection
+Question 1: Temperature
+\end_layout
+
+\begin_layout Standard
+How much does the temperature (relative to average) in a given month 
+\end_layout
+
+\begin_layout Standard
+correlate with the temperature (relative to average) in the following month?
+ 
+\end_layout
+
+\begin_layout Standard
+3 months out? 6 months out? A year out? Quantify the uncertainties.
+\end_layout
+
+\begin_layout Subsubsection
+Question 2: Precipitation
+\end_layout
+
+\begin_layout Standard
+How much does the precipitation (relative to average) in a given month 
+\end_layout
+
+\begin_layout Standard
+correlate with the precipitation (relative to average) in the following
+ month?
+\end_layout
+
+\begin_layout Standard
+3 months out? 6 months out? A year out? Quantify the uncertainties.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "NOAA"
+key "key-1"
+
+\end_inset
+
+NOAA Climate Data Online request 1000478, 2017-06-22 GHCND:USW00024233
+\end_layout
+
+\begin_layout Standard
+Precip, TMax, TMin
+\end_layout
+
+\end_body
+\end_document
