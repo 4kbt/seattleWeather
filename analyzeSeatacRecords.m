@@ -1,4 +1,7 @@
 clear
+pkg load signal
+more off
+
 
 importSeatacRecords
 
@@ -102,6 +105,24 @@ M0M1 = M0.*M1;
 mean(M0M1(:,1))
 std(M0M1(:,1))/sqrt(rows(M0))
 %hist(M0M1(:,1),sqrt(rows(M0)))
+
+%Let's make it procedural
+tempMeanDiff = [];
+for delay = 0:200
+	MD0 = dTemperatureAnomaly(1:(end-delay),3:4);
+	MDN = dTemperatureAnomaly((1+delay):end  ,3:4);
+
+	MD0MDN = MD0.*MDN;
+
+	MDmean = mean(MD0MDN(:,1));
+	MDerr  = std( MD0MDN(:,1))/sqrt(rows(MD0));
+	
+	tempMeanDiff = [tempMeanDiff; delay MDmean MDerr];
+end
+
+semilogxerr(tempMeanDiff(:,1), tempMeanDiff(:,2), tempMeanDiff(:,3))
+xlabel('delay (months)')
+ylabel('<T * T(delay) > (K^2)')
 
 
 %%%%%%%%%%%%%%%%
